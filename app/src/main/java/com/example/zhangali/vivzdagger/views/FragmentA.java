@@ -19,6 +19,7 @@ import com.example.zhangali.vivzdagger.keys.Keys;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -42,7 +43,7 @@ public class FragmentA extends Fragment {
     }
 
 
-    @BindView(R.id.input_text) Button mInputText;
+    @BindView(R.id.input_text) EditText mInputText;
 
     public FragmentA() {
         // Required empty public constructor
@@ -59,7 +60,9 @@ public class FragmentA extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_a, container, false);
+        View view =  inflater.inflate(R.layout.fragment_a, container, false);
+        ButterKnife.bind(this, view);
+        return view;
     }
 
 }

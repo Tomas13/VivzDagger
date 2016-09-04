@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.zhangali.vivzdagger.MyApplication;
 import com.example.zhangali.vivzdagger.R;
@@ -17,6 +18,7 @@ import com.example.zhangali.vivzdagger.keys.Keys;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -28,7 +30,7 @@ public class FragmentB extends Fragment {
     SharedPreferences mPreferences;
 
     @BindView(R.id.text_stored)
-    EditText mTextStored;
+    TextView mTextStored;
 
     @OnClick(R.id.btn_refresh) void onRefreshClick(){
         loadStoredDataIntoTextView();
@@ -54,7 +56,10 @@ public class FragmentB extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_b, container, false);
+        View view = inflater.inflate(R.layout.fragment_b, container, false);
+        ButterKnife.bind(this, view);
+        return view;
+
     }
 
 }
